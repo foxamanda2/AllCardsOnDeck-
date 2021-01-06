@@ -17,30 +17,31 @@ namespace AllCardsOnDeck_
             {
                 for (var faceindex = 0; faceindex < faceList.Count; faceindex++)
                 {
-                    var testing = suitList[suitindex] + faceList[faceindex];
-                    deckOfCards.Add(testing);
+                    deckOfCards.Add($"{faceList[faceindex]} of {suitList[suitindex]}");
                 }
             }
-            foreach (var cards in deckOfCards)
-            {
-                Console.WriteLine(cards);
-            }
+            // foreach (var cards in deckOfCards)
+            // {
+            // Console.WriteLine(cards);
+            // }
 
             //  Shuffling
             var numOfCards = deckOfCards.Count;
             for (var rightindex = numOfCards - 1; rightindex >= 0; rightindex--)
             {
                 var leftindex = new Random().Next(0, rightindex);
+                var leftNum = deckOfCards[leftindex];
+                var rightNum = deckOfCards[rightindex];
+                deckOfCards[rightindex] = leftNum;
+                deckOfCards[leftindex] = rightNum;
             }
+            foreach (var shufCards in deckOfCards)
+            {
+                Console.WriteLine($"{shufCards}");
+            }
+            var firstTwoCards = ($"Card 1: {deckOfCards[0]} Card 2: {deckOfCards[1]}");
 
-            // for rightIndex from numberOfCards - 1 down to 1 do:
-            // leftIndex = random integer that is greater than or equal to 0 and LESS than rightIndex. See the section "How do we get a random integer")
-
-            // Now swap the values at rightIndex and leftIndex by doing this:
-            // leftCard = the value from deck[leftIndex]
-            // rightCard = the value from deck[rightIndex]
-            // deck[rightIndex] = leftCard
-            // deck[leftIndex] = rightCard
+            Console.WriteLine(firstTwoCards);
         }
     }
 }
