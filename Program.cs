@@ -45,10 +45,12 @@ namespace AllCardsOnDeck_
             Console.Write("How many cards do you want in your hand? ");
             var cardNum = int.Parse(Console.ReadLine());
 
+            Console.WriteLine(deckOfCards.Count);
+
             for (var hand1index = 0; hand1index < cardNum; hand1index++)
             {
                 var hand1 = deckOfCards[hand1index];
-                Console.WriteLine($"This is in person 2 deck: {hand1}");
+                Console.WriteLine($"This is in person 1 deck: {hand1}");
                 deckOfCards.Remove(hand1);
 
             }
@@ -57,15 +59,7 @@ namespace AllCardsOnDeck_
             {
                 var hand2 = deckOfCards[hand2index];
                 Console.WriteLine($"This is in person 2 deck: {hand2}");
-                deckOfCards.Remove(hand2);
             }
-
-            foreach (var deck in deckOfCards)
-            {
-                Console.WriteLine(deck);
-            }
-
-
         }
     }
 }
