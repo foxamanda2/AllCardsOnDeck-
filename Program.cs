@@ -20,10 +20,7 @@ namespace AllCardsOnDeck_
                     deckOfCards.Add($"{faceList[faceindex]} of {suitList[suitindex]}");
                 }
             }
-            // foreach (var cards in deckOfCards)
-            // {
-            // Console.WriteLine(cards);
-            // }
+
 
             //  Shuffling
             var numOfCards = deckOfCards.Count;
@@ -39,9 +36,36 @@ namespace AllCardsOnDeck_
             {
                 Console.WriteLine($"{shufCards}");
             }
-            var firstTwoCards = ($"Card 1: {deckOfCards[0]} Card 2: {deckOfCards[1]}");
 
+            //  First Two Cards
+            var firstTwoCards = ($"Card 1: {deckOfCards[0]} Card 2: {deckOfCards[1]}");
             Console.WriteLine(firstTwoCards);
+
+            // Two Hands of Cards
+            Console.Write("How many cards do you want in your hand? ");
+            var cardNum = int.Parse(Console.ReadLine());
+
+            for (var hand1index = 0; hand1index < cardNum; hand1index++)
+            {
+                var hand1 = deckOfCards[hand1index];
+                Console.WriteLine($"This is in person 2 deck: {hand1}");
+                deckOfCards.Remove(hand1);
+
+            }
+            Console.WriteLine("\n\n\n");
+            for (var hand2index = 0; hand2index < cardNum; hand2index++)
+            {
+                var hand2 = deckOfCards[hand2index];
+                Console.WriteLine($"This is in person 2 deck: {hand2}");
+                deckOfCards.Remove(hand2);
+            }
+
+            foreach (var deck in deckOfCards)
+            {
+                Console.WriteLine(deck);
+            }
+
+
         }
     }
 }
